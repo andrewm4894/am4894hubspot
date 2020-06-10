@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: search
       url: /search
+    - output: web,pdf
+      title: contacts
+      url: /contacts
     output: web
     title: am4894hubspot
   output: web

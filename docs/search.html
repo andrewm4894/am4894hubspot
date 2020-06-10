@@ -85,7 +85,7 @@ description: "API details."
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># example usage</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">hubspot_search</span><span class="p">(</span><span class="s1">&#39;andrewm4894@gmail.com&#39;</span><span class="p">,</span><span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">hubspot_search</span><span class="p">(</span><span class="s1">&#39;andrewm4894@gmail.com&#39;</span><span class="p">,</span> <span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span>
 <span class="n">results</span>
 </pre></div>
 
@@ -131,7 +131,7 @@ description: "API details."
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># tests</span>
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">hubspot_search</span><span class="p">(</span><span class="s1">&#39;andrewm4894@gmail.com&#39;</span><span class="p">,</span><span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">hubspot_search</span><span class="p">(</span><span class="s1">&#39;andrewm4894@gmail.com&#39;</span><span class="p">,</span> <span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span>
 <span class="n">results_email</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
 <span class="k">assert</span> <span class="n">results_email</span> <span class="o">==</span> <span class="s1">&#39;andrewm4894@gmail.com&#39;</span>
 </pre></div>
