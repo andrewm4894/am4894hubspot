@@ -1,4 +1,4 @@
-# nbdev template
+# am4894hubspot
 
-Use this template to more easily create your nbdev project.
+Helper library for hubspot api.
 
