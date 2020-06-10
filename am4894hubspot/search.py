@@ -18,7 +18,7 @@ def hubspot_search(value, property='email', operator='EQ', hapikey=None):
     Search hubspot based on one filter condition.
     """
     if hapikey is None:
-        hapikey = os.environ.get('hapikey','demo')
+        hapikey = os.environ.get('HUBSPOT_API_KEY','demo')
     endpoint = 'https://api.hubapi.com/crm/v3/objects/contacts/search'
     url = f'{endpoint}?hapikey={hapikey}'
     headers = {
