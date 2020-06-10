@@ -31,3 +31,5 @@ jobs:
     - name: Run tests
       run: |
         nbdev_test_nbs
+      env:
+        HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
