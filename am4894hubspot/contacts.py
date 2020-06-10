@@ -14,7 +14,7 @@ load_dotenv()
 # Cell
 
 
-def contact_exists(value, property='email', operator='EQ', hapikey=None):
+def contact_exists(value, property='email', operator='EQ', hapikey=None) -> bool:
     """
     Check if a contact exists.
     """
