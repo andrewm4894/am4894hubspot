@@ -2,9 +2,9 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"hubspot_search": "00_search.ipynb"}
 
-modules = ["core.py"]
+modules = ["search.py"]
 
 doc_url = "https://andrewm4894.github.io/am4894hubspot/"
 
