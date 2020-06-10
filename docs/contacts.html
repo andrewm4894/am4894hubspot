@@ -63,7 +63,39 @@ description: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="contact_exists" class="doc_header"><code>contact_exists</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>contact_exists</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="create_contact" class="doc_header"><code>create_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_contact</code>(<strong><code>contact</code></strong>=<em><code>None</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Create a contact.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="contact_exists" class="doc_header"><code>contact_exists</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>contact_exists</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Check if a contact exists.</p>
 
@@ -80,18 +112,13 @@ description: "API details."
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># example usage</span>
-<span class="n">does_exist</span> <span class="o">=</span> <span class="n">contact_exists</span><span class="p">(</span><span class="s1">&#39;andrewm4894@gmail.com&#39;</span><span class="p">,</span> <span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span>
-<span class="n">does_exist</span>
-</pre></div>
+</div>
+    {% endraw %}
 
-    </div>
-</div>
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -99,9 +126,43 @@ description: "API details."
 <div class="output_area">
 
 
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_contact" class="doc_header"><code>get_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_contact</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Get contact.</p>
 
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="delete_contact" class="doc_header"><code>delete_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>delete_contact</code>(<strong><code>vid</code></strong>=<em><code>None</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Delete a contact.</p>
+
 </div>
 
 </div>
@@ -121,7 +182,24 @@ description: "API details."
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># tests</span>
 
-<span class="k">assert</span> <span class="n">contact_exists</span><span class="p">(</span><span class="s1">&#39;andrewm4894@gmail.com&#39;</span><span class="p">,</span> <span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="n">test_email</span> <span class="o">=</span> <span class="s1">&#39;fake_user@example.com&#39;</span>
+
+<span class="c1"># create a contact</span>
+<span class="n">result_create</span> <span class="o">=</span> <span class="n">create_contact</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">test_email</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">result_create</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_email</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># check it exists</span>
+<span class="k">assert</span> <span class="n">contact_exists</span><span class="p">(</span><span class="n">test_email</span><span class="p">,</span> <span class="n">hapikey</span><span class="o">=</span><span class="n">hapikey</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+
+<span class="c1"># get contact</span>
+<span class="n">contact</span> <span class="o">=</span> <span class="n">get_contact</span><span class="p">(</span><span class="n">test_email</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">contact</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_email</span>
+
+<span class="c1"># delete contact</span>
+<span class="n">result_delete</span> <span class="o">=</span> <span class="n">delete_contact</span><span class="p">(</span><span class="n">vid</span><span class="o">=</span><span class="n">contact</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">result_delete</span><span class="p">[</span><span class="s1">&#39;deleted&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span>
 </pre></div>
 
     </div>
