@@ -95,7 +95,7 @@ description: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="contact_exists" class="doc_header"><code>contact_exists</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>contact_exists</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="contact_exists" class="doc_header"><code>contact_exists</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L41" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>contact_exists</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Check if a contact exists.</p>
 
@@ -127,7 +127,7 @@ description: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_contact" class="doc_header"><code>get_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_contact</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="get_contact" class="doc_header"><code>get_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_contact</code>(<strong><code>value</code></strong>, <strong><code>property</code></strong>=<em><code>'email'</code></em>, <strong><code>operator</code></strong>=<em><code>'EQ'</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Get contact.</p>
 
@@ -159,9 +159,41 @@ description: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="delete_contact" class="doc_header"><code>delete_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>delete_contact</code>(<strong><code>vid</code></strong>=<em><code>None</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="delete_contact" class="doc_header"><code>delete_contact</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>delete_contact</code>(<strong><code>vid</code></strong>=<em><code>None</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Delete a contact.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="create_contacts" class="doc_header"><code>create_contacts</code><a href="https://github.com/andrewm4894/am4894hubspot/tree/master/am4894hubspot/contacts.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_contacts</code>(<strong><code>contacts</code></strong>=<em><code>None</code></em>, <strong><code>hapikey</code></strong>=<em><code>None</code></em>, <strong><code>check_exists</code></strong>=<em><code>True</code></em>)</p>
+</blockquote>
+<p>Create contacts from a list of contacts.</p>
 
 </div>
 
@@ -205,6 +237,20 @@ description: "API details."
 <span class="c1"># delete contact</span>
 <span class="n">result_delete</span> <span class="o">=</span> <span class="n">delete_contact</span><span class="p">(</span><span class="n">vid</span><span class="o">=</span><span class="n">contact</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
 <span class="k">assert</span> <span class="n">result_delete</span><span class="p">[</span><span class="s1">&#39;deleted&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span>
+
+<span class="c1">## create batch of contacts</span>
+<span class="c1">#test_contacts = [</span>
+<span class="c1">#    dict(email=&#39;user1@example.com&#39;),</span>
+<span class="c1">#    dict(email=&#39;user2@example.com&#39;),</span>
+<span class="c1">#]</span>
+<span class="c1">#assert create_contacts(test_contacts) == True</span>
+<span class="c1">#time.sleep(5)</span>
+<span class="c1">## now clean up and delete them</span>
+<span class="c1">#for test_contact in test_contacts:</span>
+<span class="c1">#    time.sleep(5)</span>
+<span class="c1">#    test_email = test_contact[&#39;email&#39;]</span>
+<span class="c1">#    test_contact_vid = get_contact(test_email)[&#39;id&#39;]</span>
+<span class="c1">#    delete_contact(vid=test_contact_vid)</span>
 </pre></div>
 
     </div>
