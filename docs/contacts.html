@@ -223,7 +223,7 @@ description: "API details."
 
 <span class="c1"># create contact</span>
 <span class="n">result_create</span> <span class="o">=</span> <span class="n">create_contact</span><span class="p">(</span><span class="n">contact_data</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">result_create</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_email</span>
+<span class="k">assert</span> <span class="n">result_create</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;exists&#39;</span><span class="p">]</span>
 
 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 

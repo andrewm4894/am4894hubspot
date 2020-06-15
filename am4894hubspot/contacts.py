@@ -31,9 +31,19 @@ def create_contact(contact=None, hapikey=None):
         }
         data = json.dumps({"properties": [{"property": k,"value": contact[k]} for k in contact]})
         r = requests.post(url=url, data=data, headers=headers)
-        return r.json()
+        response = r.json()
+        if response['properties']['email']['value'] == contact['email']:
+            response['status'] = 'created'
+        else:
+            response['status'] = 'error'
+        return response
     else:
-        return get_contact(contact['email'])
+        response = get_contact(contact['email'])
+        if response['properties']['email'] == contact['email']:
+            response['status'] = 'exists'
+        else:
+            response['status'] = 'error'
+        return response
 
 # Cell
 
@@ -43,7 +53,7 @@ def contact_exists(value, property='email', operator='EQ', hapikey=None) -> bool
     Check if a contact exists.
     """
     r = hubspot_search(value, property=property, operator=operator, hapikey=hapikey)
-    if r['total'] > 0:
+    if r.get('total',0) > 0:
         return True
     else:
         return False
@@ -96,16 +106,8 @@ def create_contacts(contacts=None, hapikey=None, check_exists=True):
     payload = []
     # loop over contacts and build payload to send
     for contact in contacts:
-        # only try create contacts not found
         email = contact["email"]
-        if check_exists:
-            # only append if does not exist
-            if not contact_exists(email):
-                payload.append({"email": email, "properties": [{"property": k,"value": contact[k]} for k in contact]})
-            else:
-                print(f"skipping {email} as already exists")
-        else:
-            payload.append({"email": email, "properties": [{"property": k,"value": contact[k]} for k in contact]})
+        payload.append({"email": email, "properties": [{"property": k,"value": contact[k]} for k in contact]})
     payload = json.dumps(payload)
     r = requests.request("POST", url, data=payload, headers=headers, params=querystring)
     if r.status_code == 202:
