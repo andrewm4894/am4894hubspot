@@ -7,7 +7,8 @@ index = {"hubspot_search": "00_search.ipynb",
          "contact_exists": "01_contacts.ipynb",
          "get_contact": "01_contacts.ipynb",
          "delete_contact": "01_contacts.ipynb",
-         "create_contacts": "01_contacts.ipynb"}
+         "create_contacts": "01_contacts.ipynb",
+         "update_contact": "01_contacts.ipynb"}
 
 modules = ["search.py",
            "contacts.py"]
