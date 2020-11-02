@@ -135,15 +135,18 @@ def update_contact(email, properties, hapikey=None):
     """
     if hapikey is None:
         hapikey = os.environ.get('HUBSPOT_API_KEY','demo')
-    contact = get_contact(email)
-    vid = contact['id']
-    endpoint = 'https://api.hubapi.com/contacts/v1/contact/'
-    url = f'{endpoint}/vid/{vid}/profile?hapikey={hapikey}'
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = json.dumps({"properties": [{"property": k,"value": properties[k]} for k in properties]})
-    r = requests.post(url=url, data=data, headers=headers)
-    response = r.status_code
-    return response
+    if contact_exists(email):
+        contact = get_contact(email)
+        vid = contact['id']
+        endpoint = 'https://api.hubapi.com/contacts/v1/contact/'
+        url = f'{endpoint}/vid/{vid}/profile?hapikey={hapikey}'
+        headers = {
+            "Content-Type": "application/json"
+        }
+        data = json.dumps({"properties": [{"property": k,"value": properties[k]} for k in properties]})
+        r = requests.post(url=url, data=data, headers=headers)
+        response = r.status_code
+        return response
+    else:
+        return None
 
