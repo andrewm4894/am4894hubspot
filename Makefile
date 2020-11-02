@@ -2,6 +2,11 @@ SRC = $(wildcard ./*.ipynb)
 
 all: am4894hubspot docs
 
+build: $(SRC)
+	nbdev_build_docs
+	nbdev_test_nbs
+	nbdev_build_lib
+
 am4894hubspot: $(SRC)
 	nbdev_build_lib
 	touch am4894hubspot
