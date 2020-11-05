@@ -3,7 +3,8 @@
 __all__ = ['hubspot_search']
 
 # Cell
-#export
+# export
+
 import os
 import json
 import requests
@@ -39,3 +40,4 @@ def hubspot_search(value, property='email', operator='EQ', hapikey=None):
     })
     r = requests.post(url=url, data=data, headers=headers)
     return r.json()
+

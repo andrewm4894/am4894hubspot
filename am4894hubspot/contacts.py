@@ -38,9 +38,12 @@ def get_contact(value, property='email', operator='EQ', hapikey=None):
     if hapikey is None:
         hapikey = os.environ.get('HUBSPOT_API_KEY','demo')
     r = hubspot_search(value, property=property, operator=operator, hapikey=hapikey)
-    if r['total'] > 0:
-        contact = r['results'][0]
-        return contact
+    if 'total' in r:
+        if r['total'] > 0:
+            contact = r['results'][0]
+            return contact
+        else:
+            return None
     else:
         return None
 
@@ -64,7 +67,7 @@ def create_contact(contact=None, hapikey=None):
     }
     data = json.dumps({"properties": [{"property": k,"value": contact[k]} for k in contact]})
     r = requests.post(url=url, data=data, headers=headers)
-    return r.json()
+    return r
 
 
 
@@ -133,7 +136,6 @@ def update_contact(email, properties, hapikey=None):
         }
         data = json.dumps({"properties": [{"property": k,"value": properties[k]} for k in properties]})
         r = requests.post(url=url, data=data, headers=headers)
-        print(r.text)
         return r
     else:
         return None
