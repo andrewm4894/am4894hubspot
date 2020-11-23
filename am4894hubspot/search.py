@@ -14,15 +14,18 @@ load_dotenv()
 # Cell
 
 
-def hubspot_search(value, property='email', operator='EQ', hapikey=None):
+def hubspot_search(value, property='email', operator='EQ', hapikey=None, properties=None):
     """
     Search hubspot based on one filter condition.
     """
     if hapikey is None:
         hapikey = os.environ.get('HUBSPOT_API_KEY','demo')
-    endpoint = 'https://api.hubapi.com/crm/v3/objects/contacts/search'
-    url = f'{endpoint}?hapikey={hapikey}'
+    if properties is None:
+        properties = ['email', 'createdate', 'firstname', 'lastname', 'lastmodifieddate', 'hs_object_id']
+    url = 'https://api.hubapi.com/crm/v3/objects/contacts/search'
+    querystring = {"hapikey": hapikey}
     headers = {
+        "accept": "application/json",
         "Content-Type": "application/json"
     }
     data = json.dumps({
@@ -36,8 +39,9 @@ def hubspot_search(value, property='email', operator='EQ', hapikey=None):
                     }
                 ]
             }
-        ]
+        ],
+        "properties" : properties
     })
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.post(url=url, data=data, headers=headers, params=querystring)
     return r.json()
 

@@ -5,6 +5,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"hubspot_search": "00_search.ipynb",
          "contact_exists": "01_contacts.ipynb",
          "get_contact": "01_contacts.ipynb",
+         "get_contact_by_id": "01_contacts.ipynb",
          "create_contact": "01_contacts.ipynb",
          "delete_contact": "01_contacts.ipynb",
          "create_contacts": "01_contacts.ipynb",
