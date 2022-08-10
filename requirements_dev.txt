@@ -4,4 +4,4 @@ jupyterlab==2.1.2
 nbdev==0.2.18
 twine==3.1.1
 python-dotenv==0.13.0
-nbconvert==5.6.1
+nbconvert==6.3.0
